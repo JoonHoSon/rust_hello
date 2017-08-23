@@ -1,13 +1,9 @@
+mod lib;
+
 #[derive(Debug)]
 struct Test {
     x: i8,
     y: i8
-}
-
-macro_rules! last_element {
-    ($v: ident) => (
-        $v[$v.len() - 1]
-    )
 }
 
 fn main() {
@@ -67,19 +63,4 @@ fn main() {
     println!("after last item : {}", last_element!(v));
 
     // println!("v[0] is : {}", v[0]);
-}
-
-fn test(x: i8) -> i8 {
-    x + 1
-}
-
-fn return_none(x: i8) -> () {
-    println!("return none => {}", x);
-}
-
-fn take(v: &mut Vec<i8>) -> () {
-    println!("in take function >> {}", v[0]);
-    v[0] = v[0] + 1;
-    v[1] = v[1] * 3;
-    v.push(100);
 }
