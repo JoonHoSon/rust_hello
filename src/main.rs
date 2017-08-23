@@ -1,4 +1,5 @@
 mod lib;
+mod mac;
 
 #[derive(Debug)]
 struct Test {
@@ -11,17 +12,17 @@ fn main() {
 
     println!("Hello, world! => {}", message);
 
-    message = test(message);
+    message = lib::test(message);
 
     println!("change variables value => {}", message);
 
     // assert_eq!(convert_string, "51");
 
-    println!("use stringify => {}", test(message));
+    println!("use stringify => {}", lib::test(message));
 
     assert_eq!(51, message);
 
-    return_none(message);
+    lib::return_none(message);
 
     let st: Test = Test {x: 1, y: 2};
     let t = "Hello, world!";
@@ -41,7 +42,7 @@ fn main() {
         }
     }
 
-    let func: fn(i8) -> i8 = test;
+    let func: fn(i8) -> i8 = lib::test;
 
     println!("call named function => {}", func(22));
 
@@ -53,14 +54,14 @@ fn main() {
     println!("before length : {}", v.len());
     println!("before v[0] : {}", v[0]);
     println!("before v[1] : {}", v[1]);
-    println!("before last item : {}", last_element!(v));
+    println!("before last item : {}", mac::last_element!(v));
 
-    take(&mut v);
+    lib::take(&mut v);
 
     println!("after v[0] : {}", v[0]);
     println!("after v[1] : {}", v[1]);
     println!("after length : {}", v.len());
-    println!("after last item : {}", last_element!(v));
+    println!("after last item : {}", mac::last_element!(v));
 
     // println!("v[0] is : {}", v[0]);
 }
