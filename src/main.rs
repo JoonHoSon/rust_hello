@@ -1,4 +1,6 @@
 mod lib;
+
+#[macro_use]
 mod mac;
 
 #[derive(Debug)]
@@ -11,6 +13,7 @@ fn main() {
     let mut message = 50;
 
     println!("Hello, world! => {}", message);
+    println!("named placeholder => {holder}", holder="Wow!");
 
     message = lib::test(message);
 
@@ -54,14 +57,14 @@ fn main() {
     println!("before length : {}", v.len());
     println!("before v[0] : {}", v[0]);
     println!("before v[1] : {}", v[1]);
-    println!("before last item : {}", mac::last_element!(v));
+    println!("before last item : {}", last_element!(v));
 
     lib::take(&mut v);
 
     println!("after v[0] : {}", v[0]);
     println!("after v[1] : {}", v[1]);
     println!("after length : {}", v.len());
-    println!("after last item : {}", mac::last_element!(v));
+    println!("after last item : {}", last_element!(v));
 
     // println!("v[0] is : {}", v[0]);
 }
